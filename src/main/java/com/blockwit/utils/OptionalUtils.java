@@ -27,11 +27,11 @@ public class OptionalUtils {
 		optional.ifPresentOrElse(f::accept, () -> log.error("Optional value is empty!"));
 	}
 
-	public static <R> void process(Either<Error, R> either, Consumer<R> f) {
+	public static <T, R> void process(Either<T, R> either, Consumer<R> f) {
 		if (either.isRight()) f.accept(either.get());
 	}
 
-	public static <T> Boolean processIsRepeat(Either<Error, T> either, Function<T, Boolean> f) {
+	public static <R, T> Boolean processIsRepeat(Either<R, T> either, Function<T, Boolean> f) {
 		return either.fold(error -> false, r -> f.apply(r));
 	}
 
