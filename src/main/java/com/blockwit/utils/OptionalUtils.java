@@ -15,7 +15,7 @@ public class OptionalUtils {
 		return r.isPresent() ? successF.apply(r.get()) : errorF.get();
 	}
 
-	public static <T, R> R process(Either<Error, T> r, Supplier<R> errorF, Function<T, R> successF) {
+	public static <T, R, M> R process(Either<M, T> r, Supplier<R> errorF, Function<T, R> successF) {
 		return r.isLeft() ? errorF.get() : successF.apply(r.get());
 	}
 
