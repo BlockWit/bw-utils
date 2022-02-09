@@ -47,8 +47,6 @@ public class DoubleHumanAdoptedParser {
 		if (valueToParse.length() > DEF_DOUBLE_LIMITER * 2 + 1)
 			return Either.left(ERR_CODE_VALUE_LENGTH_LIMIT);
 
-		System.out.println(valueToParse);
-
 		Double result = Double.parseDouble(valueToParse);
 
 		return Either.right(result);
